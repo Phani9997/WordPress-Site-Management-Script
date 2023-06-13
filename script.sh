@@ -131,9 +131,7 @@ docker volume create db_data
 docker-compose up -d
 
 # Provide information about the created site
-echo "WordPress site created successfully!"
-echo "Site Name: $site_name"
-echo "Site URL: http://$public_ip:$port"
+echo "$G WordPress site created successfully! $N"
 
 # Add entry to /etc/hosts
 echo "Adding entry to /etc/hosts..."
@@ -142,7 +140,7 @@ echo "127.0.0.1    $site_name" >> /etc/hosts
 
 # Prompt user to open the site in a browser
 echo "Open the following URL in a browser to access the site:"
-echo "http://$site_name"
-echo "Site URL: http://$public_ip:$port"
+echo "Site Name: $G http://$site_name $N"
+echo "Site URL: $G http://$public_ip:$port $N"
 
 exit 0
