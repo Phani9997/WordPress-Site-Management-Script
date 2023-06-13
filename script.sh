@@ -61,25 +61,25 @@ cd "$site_dir" || exit 1
 # Check if the site is already enabled
 if [ -f .enabled ]; then
     if [ "$3" = "enable" ]; then
-        echo "Site '$site_name' is already enabled."
+        echo "$G Site '$site_name' is already enabled $N."
         exit 0
     fi
 elif [ "$3" = "disable" ]; then
-    echo "Site '$site_name' is already disabled."
+    echo "$G Site '$site_name' is already disabled $N."
     exit 0
 fi
 
 # Enable the site
 if [ "$3" = "enable" ]; then
     touch .enabled
-    echo "Site '$site_name' is now enabled."
+    echo "$G Site '$site_name' is now enabled $N."
     exit 0
 fi
 
 # Disable the site
 if [ "$3" = "disable" ]; then
     rm -f .enabled
-    echo "Site '$site_name' is now disabled."
+    echo "$G Site '$site_name' is now disabled $N."
     exit 0
 fi
 
@@ -87,7 +87,7 @@ fi
 if [ "$3" = "delete" ]; then
     docker-compose down
     rm -rf "$site_dir"
-    echo "Site '$site_name' has been deleted."
+    echo "$G Site '$site_name' has been deleted $N."
     exit 0
 fi
 
